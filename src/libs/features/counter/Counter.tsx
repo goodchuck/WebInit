@@ -3,13 +3,11 @@ import React, { useState } from 'react'
 
 import { useAppSelector, useAppDispatch } from '../../hooks'
 import {
-    decrement,
-    increment,
-    incrementByAmount,
-    incrementAsync,
+    actions,
     incrementIfOdd,
-    selectCount
-} from './counterSlice'
+    selectCount,
+    incrementAsync
+} from '../counter'
 import styles from './Counter.module.css'
 
 export function Counter() {
@@ -25,7 +23,7 @@ export function Counter() {
                 <button
                     className={styles.button}
                     aria-label="Decrement value"
-                    onClick={() => dispatch(decrement())}
+                    onClick={() => dispatch(actions.decrementAction())}
                 >
                     -
                 </button>
@@ -33,7 +31,7 @@ export function Counter() {
                 <button
                     className={styles.button}
                     aria-label="Increment value"
-                    onClick={() => dispatch(increment())}
+                    onClick={() => dispatch(actions.incrementAction())}
                 >
                     +
                 </button>
@@ -47,7 +45,7 @@ export function Counter() {
                 />
                 <button
                     className={styles.button}
-                    onClick={() => dispatch(incrementByAmount(incrementValue))}
+                    onClick={() => dispatch(actions.incrementByAmount(incrementValue))}
                 >
                     Add Amount
                 </button>

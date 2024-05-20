@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import { HeaderV1 } from "@/containers";
+import { Flex } from "antd";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,7 +22,13 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <Flex gap={'middle'} style={{ height: '100vh' }}>
+            <HeaderV1></HeaderV1>
+            {children}
+          </Flex>
+
+        </body>
       </html>
     </StoreProvider>
 
