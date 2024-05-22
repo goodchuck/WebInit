@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, DesktopOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { usePathname, useRouter } from 'next/navigation';
@@ -23,29 +23,27 @@ function getItem(
 }
 const items: MenuItem[] = [
     // getItem('audio', '1', <PieChartOutlined />),
-    // getItem('image', '2', <DesktopOutlined />),
+    getItem('메인', '/', <DesktopOutlined />),
     // getItem('Option 3', '3', <ContainerOutlined />),
 
-    getItem('Redux', '/redux', <MailOutlined />, [
-        getItem('reduxToolkit 메인', '/redux/main'),
-        // getItem('Option 6', '6'),
-        // getItem('Option 7', '7'),
-        // getItem('Option 8', '8'),
+    getItem('ReduxToolKit', '/redux', <MailOutlined />, [
+        getItem('메인', '/redux/main'),
+        getItem('로그인', '/redux/login'),
     ]),
 
-    getItem('Image', '/image', <AppstoreOutlined />, [
-        getItem('generator', '/image/generator'),
-        getItem('edit', '/image/edit'),
+    // getItem('Image', '/image', <AppstoreOutlined />, [
+    //     getItem('generator', '/image/generator'),
+    //     getItem('edit', '/image/edit'),
 
-        // getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
-    ]),
-    getItem('text', '/text', <AppstoreOutlined />, [
-        getItem('gpt3_5', '/text/gpt3_5'),
-    ]),
-    getItem('카카오톡컨셉', '/kakaoTalk', <AppstoreOutlined />, [
-        getItem('친구들', '/girl-friend/friends'),
-    ]),
-    getItem('도우미들', '/assistant', <AppstoreOutlined />),
+    //     // getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
+    // ]),
+    // getItem('text', '/text', <AppstoreOutlined />, [
+    //     getItem('gpt3_5', '/text/gpt3_5'),
+    // ]),
+    // getItem('카카오톡컨셉', '/kakaoTalk', <AppstoreOutlined />, [
+    //     getItem('친구들', '/girl-friend/friends'),
+    // ]),
+    // getItem('도우미들', '/assistant', <AppstoreOutlined />),
 ];
 export const HeaderV1 = () => {
     const [collapsed, setCollapsed] = useState(false);

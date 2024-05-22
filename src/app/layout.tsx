@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import 'prismjs/themes/prism.css';
 import StoreProvider from "./StoreProvider";
 import { HeaderV1 } from "@/containers";
 import { Flex } from "antd";
@@ -23,9 +24,10 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body className={inter.className}>
-          <Flex gap={'middle'} style={{ height: '100vh' }}>
+          <Flex gap={'middle'} style={{ minHeight: '100vh' }}>
             <HeaderV1></HeaderV1>
             {children}
+
           </Flex>
 
         </body>

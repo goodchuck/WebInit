@@ -1,14 +1,25 @@
 "use client"
 
-import { Flex } from "antd"
+import { MainLayout } from "@/layout/MainLayout"
+import { Button, Flex } from "antd"
+import Link from "next/link"
 
 export const MainPage = () => {
 
     return (
-        <Flex vertical>
-            <h1>메인 페이지입니다.</h1>
-            <p>해당 프로젝트는 웹 개발을할때 기본이되는 기준을 넣으려고합니다</p>
-            <p>해당 git 경로를 통해 코드 컨벤션을 확인하고 이어가기 위한게 주 목적입니다.</p>
-        </Flex>
+        <MainLayout title="메인 페이지!" tags={['next.js', 'typescript', 'redux', 'zustand', 'antdesign', 'styled-components',]}>
+            <Flex vertical gap={'middle'}>
+                <p>해당 페이지는 제가 사용하는 코드 컨벤션에 대한 정리페이지입니다.</p>
+                <p>새로 추가개발을 진행하거나 참고하고자 할때 해당 페이지의 git을 활용합니다.</p>
+                <p>해당 git 경로를 통해 코드 컨벤션을 확인하고 페이지에선 어떻게 보여지는지 확인합니다.</p>
+                <p></p>
+                <Link href="https://github.com/goodchuck/WebInit">git 링크</Link>
+                <p>위 링크를 클릭해주세요</p>
+                <p></p>
+                <p>추가로 새로운 방식이 발견될경우 페이지나 git branch로 추가 관리하려고 합니다.</p>
+                <p>주 사용방식은 git으로된 폴더구조를 확인하는 것이며 사이드 바를 통해 구현된 모습을 볼수 있습니다.</p>
+            </Flex>
+        </MainLayout>
+
     )
 }
