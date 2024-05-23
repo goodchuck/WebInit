@@ -114,6 +114,6 @@ export const formatDateToStringForEntry = () => {
   let localMinute = date.getUTCMinutes();
 
   return `Update : ${year}-${addZero(month)}-${addZero(dayOfMonth)} ${addZero(
-    localHour
+    localHour,
   )}:${addZero(localMinute)}`;
 };

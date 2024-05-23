@@ -1,8 +1,8 @@
 // base
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
 // default
-export const AUTH = "auth";
+export const AUTH = 'auth';
 export const AUTH_SLICE_NAME = `${AUTH}Slice`;
 
 // action
@@ -35,16 +35,16 @@ const POST_REJECT = `${AUTH}/postReject`;
 
 // actions
 export const actions = {
-    GET_SMS,
-    GET_SMS_VERIFY,
-    GET_SMS_CHANGE_MOBILE,
-    GET_SMS_VERIFY_FORGOT,
-    AUTH_USER_LOGIN,
-    AUTH_USER_LOGOUT,
-    AUTH_USER_SIGNUP,
-    AUTH_GET_ACCESS_TOKEN,
-    GET_AUTH_LIST,
-    POST_PASSWORD,
-    POST_APPROVE,
-    POST_REJECT,
+  GET_SMS,
+  GET_SMS_VERIFY,
+  GET_SMS_CHANGE_MOBILE,
+  GET_SMS_VERIFY_FORGOT,
+  AUTH_USER_LOGIN,
+  AUTH_USER_LOGOUT,
+  AUTH_USER_SIGNUP,
+  AUTH_GET_ACCESS_TOKEN,
+  GET_AUTH_LIST,
+  POST_PASSWORD,
+  POST_APPROVE,
+  POST_REJECT,
 };

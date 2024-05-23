@@ -12,7 +12,7 @@ export const MptwType = {
   RECEIVER: 'RECEIVER',
   SITE_HSE_OFFICER_SUBCORN: 'SITE_HSE_OFFICER_SUBCORN',
   COORDINATOR: 'COORDINATOR',
-  ISSUER: 'ISSUER'
+  ISSUER: 'ISSUER',
 };
 
 export const MptwApproverType = {
@@ -45,7 +45,7 @@ export const MptwApproverType = {
   RECEIVER: 'PERMIT_RECEIVER',
   SITE_HSE_OFFICER_SUBCORN: 'HSE_SITE_IN_CHARGE',
   COORDINATOR: 'PERMIT_COORDINATOR',
-  ISSUER: 'PERMIT_ISSUER'
+  ISSUER: 'PERMIT_ISSUER',
 };
 
 export const MptwTypes = {
@@ -258,5 +258,5 @@ export const MptwTypes = {
       default:
         return '';
     }
-  }
+  },
 };

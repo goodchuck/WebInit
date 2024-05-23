@@ -10,7 +10,7 @@ const windDirection = [
   { value: 'South', limit: 202.5 },
   { value: 'Southwest', limit: 247.5 },
   { value: 'West', limit: 292.5 },
-  { value: 'Northwest', limit: 377.5 }
+  { value: 'Northwest', limit: 377.5 },
 ];
 
 export const findWindDirectionByAngle = (angle) => {

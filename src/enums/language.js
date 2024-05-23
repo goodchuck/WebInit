@@ -4,14 +4,14 @@
 export const language = [
   {
     label: 'English',
-    value: 'en'
+    value: 'en',
   },
   {
     label: 'العربي',
-    value: 'sa'
+    value: 'sa',
   },
   {
     label: '한국어',
-    value: 'ko'
-  }
+    value: 'ko',
+  },
 ];

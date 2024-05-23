@@ -14,7 +14,7 @@ export const monthList = [
   'Sep',
   'Oct',
   'Nov',
-  'Dec'
+  'Dec',
 ];
 
 /**
@@ -28,5 +28,5 @@ export const weekendList = [
   'Wednesday',
   'Thursday',
   'Friday',
-  'Saturday'
+  'Saturday',
 ];

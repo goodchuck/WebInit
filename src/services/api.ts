@@ -1,105 +1,100 @@
 import axios, {
-    AxiosInstance,
-    AxiosRequestConfig,
-    AxiosResponse,
-    AxiosError,
-    InternalAxiosRequestConfig,
-} from "axios";
-import { ErrorCode } from "../enums"; // 경로가 올바른지 확인하세요
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosError,
+  InternalAxiosRequestConfig,
+} from 'axios';
+import { ErrorCode } from '../enums'; // 경로가 올바른지 확인하세요
 
 // services
-import { cookieStorage, COOKIE_ACCESS_TOKEN } from "../services/cookie";
+import { cookieStorage, COOKIE_KEYS } from '../services/cookie';
 
+// 에러 메시지를 추출하는 함수
 export const extractErrorMsg = (error: AxiosError): string => {
-    if (!error.response) {
-        return "서버에 접속할 수 없습니다";
-    } else {
-        return error.response.data.message || "에러 발생";
-    }
+  if (!error.response) {
+    return '서버에 접속할 수 없습니다';
+  } else {
+    return (error.response.data as any).message || '에러 발생';
+  }
 };
 
 const source = axios.CancelToken.source();
 
+// 사용자 토큰을 지우는 함수
 export const clearUserToken = (): void => {
-    cookieStorage.clearAllCookie();
+  cookieStorage.clearAllCookie();
 };
 
 class AxiosInstanceCreator {
-    private instance: AxiosInstance;
+  private instance: AxiosInstance;
 
-    constructor(config: AxiosRequestConfig) {
-        this.instance = axios.create(config);
-        this.instance.defaults.cancelToken = source.token;
-        this.interceptors();
-    }
+  constructor(config: AxiosRequestConfig) {
+    this.instance = axios.create(config);
+    this.instance.defaults.cancelToken = source.token;
+    this.interceptors();
+  }
 
-    private interceptors(): void {
-        this.instance.interceptors.request.use(
-            (config: InternalAxiosRequestConfig) => {
-                const token = cookieStorage.getCookie(COOKIE_ACCESS_TOKEN);
+  private interceptors(): void {
+    this.instance.interceptors.request.use(
+      (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
+        const token = cookieStorage.getCookie(COOKIE_KEYS.ACCESS_TOKEN);
 
-                if (!config.headers["Authorization"]) {
-                    if (token && token !== "undefined" && token !== undefined) {
-                        Object.assign(config.headers, {
-                            Authorization: `Bearer ${token}`,
-                        });
-                    }
-                }
+        if (!config.headers['Authorization']) {
+          if (token && token !== 'undefined' && token !== undefined) {
+            config.headers['Authorization'] = `Bearer ${token}`;
+          }
+        }
 
-                if (!config.headers["Content-Type"]) {
-                    Object.assign(config.headers, {
-                        "Content-Type": "application/json",
-                    });
-                }
+        if (!config.headers['Content-Type']) {
+          config.headers['Content-Type'] = 'application/json';
+        }
 
-                return config;
+        return config;
+      },
+    );
+
+    this.instance.interceptors.response.use(
+      (res: AxiosResponse): AxiosResponse => {
+        if ((res.data as any).code && (res.data as any).code !== 200) {
+          throw new Error((res.data as any).message);
+        }
+
+        return res;
+      },
+
+      (error: AxiosError): Promise<AxiosError> => {
+        if (axios.isCancel(error)) {
+          clearUserToken();
+          return Promise.reject(error);
+        } else {
+          if (error.response) {
+            if (error.response.status === ErrorCode.AUTHORIZATION_REQUIRED) {
+              clearUserToken();
+              return Promise.reject(error);
             }
-        );
 
-        this.instance.interceptors.response.use(
-            (res: AxiosResponse) => {
-                if (res.data.code && res.data.code !== 200) {
-                    throw new Error(res.data.message);
-                }
+            const result = {
+              ...error.response.data,
+              message: extractErrorMsg(error),
+            };
 
-                return res;
-            },
+            return Promise.reject(result);
+          } else {
+            const result = {
+              message: extractErrorMsg(error),
+            };
 
-            (error: AxiosError) => {
-                if (axios.isCancel(error)) {
-                    clearUserToken();
-                    throw error;
-                } else {
-                    if (error.response) {
-                        if (
-                            error.response.status ===
-                            ErrorCode.AUTHORIZATION_REQUIRED
-                        ) {
-                            clearUserToken();
-                            return;
-                        }
+            return Promise.reject(result);
+          }
+        }
+      },
+    );
+  }
 
-                        const result = {
-                            ...error.response.data,
-                            message: extractErrorMsg(error),
-                        };
-
-                        throw result;
-                    } else {
-                        const result = {
-                            message: extractErrorMsg(error),
-                        };
-
-                        throw result;
-                    }
-                }
-            }
-        );
-    }
-
-    public create(): AxiosInstance {
-        return this.instance;
-    }
+  public create(): AxiosInstance {
+    return this.instance;
+  }
 }
 
 export default AxiosInstanceCreator;

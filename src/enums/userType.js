@@ -6,14 +6,14 @@
 export const USER_TYPE = [
   {
     label: 'ALL',
-    value: 'ALL'
+    value: 'ALL',
   },
   {
     label: 'Administrator',
-    value: 'ADMIN'
+    value: 'ADMIN',
   },
   {
     label: 'Worker',
-    value: 'WORKER'
-  }
+    value: 'WORKER',
+  },
 ];

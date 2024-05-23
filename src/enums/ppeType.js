@@ -1,26 +1,26 @@
 export const PPE_TYPE = [
   {
     label: 'Helmet',
-    value: 'Helmet'
+    value: 'Helmet',
   },
   {
     label: 'Glove',
-    value: 'Glove'
+    value: 'Glove',
   },
   {
     label: 'Goggles',
-    value: 'Goggles'
+    value: 'Goggles',
   },
   {
     label: 'Shoes',
-    value: 'Shoes'
+    value: 'Shoes',
   },
   {
     label: 'Vest',
-    value: 'Vest'
+    value: 'Vest',
   },
   {
     label: 'Harness',
-    value: 'Harness'
-  }
+    value: 'Harness',
+  },
 ];

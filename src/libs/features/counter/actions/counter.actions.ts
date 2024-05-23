@@ -1,8 +1,8 @@
 // base
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
 // default
-export const COUNTER = "counter";
+export const COUNTER = 'counter';
 export const COUNTER_SLICE_NAME = `${COUNTER}Slice`;
 
 // action
@@ -18,8 +18,8 @@ const incrementByAmount = createAction<number>(INCREMENT_BY_AMOUNT);
 // const fetchCountAction = createAction(FETCH_COUNT);
 
 export const actions = {
-    incrementAction,
-    decrementAction,
-    incrementByAmount,
-    FETCH_COUNT,
+  incrementAction,
+  decrementAction,
+  incrementByAmount,
+  FETCH_COUNT,
 };

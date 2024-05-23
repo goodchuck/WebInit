@@ -1,14 +1,14 @@
-import { useEffect } from "react"
-import Prism from 'prismjs'
+import { useEffect } from 'react';
+import Prism from 'prismjs';
 
-export const CodeHighlight = ({ code }: { code: string }) => {
-    useEffect(() => {
-        Prism.highlightAll();
-    }, [])
+export default function CodeHighlight({ code }: { code: string }) {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
-    return (
-        <pre>
-            <code className="language-typescript">{code}</code>
-        </pre>
-    )
+  return (
+    <pre>
+      <code className="language-typescript">{code}</code>
+    </pre>
+  );
 }

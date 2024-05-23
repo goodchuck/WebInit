@@ -3,14 +3,14 @@
 export const TRAINING_STATUS_TYPE = [
   {
     label: 'ALL',
-    value: 'ALL'
+    value: 'ALL',
   },
   {
     label: 'Completed',
-    value: 'Completed'
+    value: 'Completed',
   },
   {
     label: 'OnGoing',
-    value: 'OnGoing'
-  }
+    value: 'OnGoing',
+  },
 ];

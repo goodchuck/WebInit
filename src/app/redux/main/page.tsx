@@ -1,10 +1,5 @@
-import { ReduxMain } from "@/containers";
-
+import { ReduxMain } from '@/containers';
 
 export default function Page() {
-    return (
-        <>
-            <ReduxMain />
-        </>
-    )
+  return <ReduxMain />;
 }

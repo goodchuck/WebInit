@@ -1,8 +1,8 @@
 export const reduxLoginData = {
-    types: [
-        {
-            title: "IUserInfo : src/types/auth",
-            content: `export interface IUserInfo {
+  types: [
+    {
+      title: 'IUserInfo : src/types/auth',
+      content: `export interface IUserInfo {
             password: string;
             id: string; // 고유 식별자 (예: 데이터베이스의 기본 키)
             username: string; // 사용자 이름 또는 별명
@@ -28,10 +28,10 @@ export const reduxLoginData = {
             orderHistory: { orderId: string; status: string; date: string }[]; // 주문 기록 (예: 주문 번호, 주문 상태, 주문 일자)
             supportTickets: { ticketId: string; status: string; createdDate: string }[]; // 지원 티켓 (예: 티켓 번호, 상태, 생성 일자)
         }`,
-        },
-        {
-            title: "AuthIntialState : src/libs/features/auth/slices/auth.slice.ts",
-            content: `interface AuthIntialState {
+    },
+    {
+      title: 'AuthIntialState : src/libs/features/auth/slices/auth.slice.ts',
+      content: `interface AuthIntialState {
                 userInfo: IUserInfo;
                 isLogin: boolean;
                 status: "idle" | "pending" | "succeeded" | "failed";
@@ -39,6 +39,6 @@ export const reduxLoginData = {
                 temporaryPaswdStatus: boolean;
                 userId: string;
             }`,
-        },
-    ],
+    },
+  ],
 };

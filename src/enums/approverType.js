@@ -17,5 +17,5 @@ export const ApproverType = {
   PERMIT_RECEIVER: 'PERMIT_RECEIVER',
   OPERATOR: 'OPERATOR',
   RIGGER: 'RIGGER',
-  SAFETY: 'SAFETY'
+  SAFETY: 'SAFETY',
 };

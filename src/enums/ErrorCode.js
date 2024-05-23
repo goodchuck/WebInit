@@ -3,7 +3,7 @@ export const ErrorCode = {
 };
 
 export const errorCodeMethods = {
-  getErrorMsg: key => {
+  getErrorMsg: (key) => {
     switch (key) {
       case ErrorCode.AUTHORIZATION_REQUIRED:
         return '사용자 인증 실패';

@@ -16,8 +16,8 @@ const resources = {
       ptw: 'M-PTW',
       weather: 'Weather & Air Quality',
       cctv: 'CCTV',
-      system: 'System Setting'
-    }
+      system: 'System Setting',
+    },
   },
   ar: {
     translation: {
@@ -30,9 +30,9 @@ const resources = {
       ptw: 'M-PTW',
       weather: 'جودة الطقس والجو',
       cctv: 'كاميرات مراقبة',
-      system: 'اعدادات النظام'
-    }
-  }
+      system: 'اعدادات النظام',
+    },
+  },
 };
 
 i18n
@@ -43,10 +43,10 @@ i18n
     lng: 'en', // 기본 언어 설정 (영어)
     fallbackLng: 'en',
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
     //ar : 아랍어
-    direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
+    direction: i18n.language === 'ar' ? 'rtl' : 'ltr',
   });
 
 export default i18n;

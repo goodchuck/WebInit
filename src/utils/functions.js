@@ -25,7 +25,7 @@ export const formattedDateMonthYear = (dateString) => {
     'SEP',
     'OCT',
     'NOV',
-    'DEC'
+    'DEC',
   ];
 
   const day = ('0' + dateObj.getDate()).slice(-2);
@@ -203,11 +203,11 @@ export const convertDataUrlToFile = (name, canvas) => {
 
 export const convertDataUrlToExcel = (excel) => {
   const blob = new Blob([excel], {
-    type: EXCEL_TYPE
+    type: EXCEL_TYPE,
   });
 
   return new File([blob], excel.name, {
-    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   });
 };
 
@@ -217,7 +217,7 @@ export const removeDuplicates = (arr) => {
       !uniqueArr.some(
         (u) =>
           u.SORT_SEQNO === currentItem.SORT_SEQNO &&
-          u.delv_SLIP_NO === currentItem.delv_SLIP_NO
+          u.delv_SLIP_NO === currentItem.delv_SLIP_NO,
       )
     ) {
       uniqueArr.push(currentItem);
@@ -333,7 +333,7 @@ export const compareKeys = (obj1, obj2) => {
   return {
     uniqueToObj1,
     uniqueToObj2,
-    commonKeys
+    commonKeys,
   };
 };
 
@@ -376,7 +376,7 @@ export const mptwItemType = (list, type, icon) => {
       key: item['short-name'].toLowerCase(),
       subTitle: item['short-name'],
       shortTitle: item['short-name'],
-      thumbUrl: icon[item['short-name'].toLowerCase()]
+      thumbUrl: icon[item['short-name'].toLowerCase()],
     }));
 };
 
@@ -386,7 +386,7 @@ export const createSelectOptions = (items) => {
     return items.map((item) => ({
       ...item,
       label: item.name,
-      value: item.name
+      value: item.name,
     }));
   } else {
     if (typeof items === 'object') {
@@ -394,7 +394,7 @@ export const createSelectOptions = (items) => {
         items.result.map((item) => ({
           ...item,
           label: item.name,
-          value: item.name
+          value: item.name,
         }));
       }
     }

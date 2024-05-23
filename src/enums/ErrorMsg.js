@@ -11,7 +11,7 @@ export const ErrorType = {
   signatureNotRequired: 'signatureNotRequired',
   signatureApprovalComfirm: 'signatureApprovalComfirm',
   signatureApprovalSuccess: 'signatureApprovalSuccess',
-  notSelectedUser: 'notSelectedUser'
+  notSelectedUser: 'notSelectedUser',
 };
 
 export const ErrorTypeMsg = {
@@ -36,5 +36,5 @@ export const ErrorTypeMsg = {
       default:
         return '';
     }
-  }
+  },
 };

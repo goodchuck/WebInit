@@ -9,7 +9,7 @@ const standardPM25 = [
   { value: 'Unhealthy for Sensitive Groups', limit: 55, color: '#ff7d0f' },
   { value: 'Unhealthy', limit: 150, color: '#ff0000' },
   { value: 'Very Unhealthy', limit: 250, color: '#9a3266' },
-  { value: 'Hazardous', limit: 9999, color: '#832131' }
+  { value: 'Hazardous', limit: 9999, color: '#832131' },
 ];
 
 /**
@@ -23,7 +23,7 @@ const standardPM10 = [
   { value: 'Unhealthy for Sensitive Groups', limit: 254, color: '#ff7d0f' },
   { value: 'Unhealthy', limit: 354, color: '#ff0000' },
   { value: 'Very Unhealthy', limit: 424, color: '#9a3266' },
-  { value: 'Hazardous', limit: 9999, color: '#904747' }
+  { value: 'Hazardous', limit: 9999, color: '#904747' },
 ];
 
 export const findStandardPM10ByNumberValue = (numberValue) => {

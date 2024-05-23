@@ -1,11 +1,6 @@
-import { MainPage } from "@/containers";
-import Image from "next/image";
+import { MainPage } from '@/containers';
 // import styles from "./page.module.css";
 
 export default function Home() {
-  return (
-    <>
-      <MainPage></MainPage>
-    </>
-  );
+  return <MainPage />;
 }
