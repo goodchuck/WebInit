@@ -1,13 +1,9 @@
 'use client';
+
 import React, { useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../hooks';
-import {
-  actions,
-  incrementIfOdd,
-  selectCount,
-  incrementAsync,
-} from '../counter';
+import { actions, incrementIfOdd, selectCount, incrementAsync } from '.';
 import styles from './Counter.module.css';
 
 export function Counter() {

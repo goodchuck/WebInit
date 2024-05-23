@@ -19,6 +19,7 @@ import { CodeCard, CodeHighlight } from '@/components';
 import { useEffect, useState } from 'react';
 
 import { reduxLoginData } from '@/dummyData/redux-login-data';
+import { formatJsonToDescription } from '@/libs/antdesign/utils';
 import StyledLogin from './style';
 
 export default function Login() {
@@ -47,23 +48,7 @@ export default function Login() {
     const res = await dispatch(userLogout());
     console.log({ res });
   };
-  // 타입에 맞게 데이터를 문자열로 변환하는 함수
-  const formatValue = (value: any): string => {
-    if (
-      typeof value === 'string' ||
-      typeof value === 'number' ||
-      typeof value === 'boolean'
-    ) {
-      return value.toString();
-    }
-    if (Array.isArray(value)) {
-      return value.map((item) => JSON.stringify(item)).join(', ');
-    }
-    if (typeof value === 'object') {
-      return JSON.stringify(value);
-    }
-    return '';
-  };
+
   useEffect(() => {
     if (!userInfo) return;
     const item: DescriptionsProps['items'] = Object.keys(userInfo).map(
@@ -71,7 +56,7 @@ export default function Login() {
         return {
           key: (index + 1).toString(),
           label: key,
-          children: formatValue(userInfo[key as keyof IUserInfo]),
+          children: formatJsonToDescription(userInfo[key as keyof IUserInfo]),
         };
       },
     );

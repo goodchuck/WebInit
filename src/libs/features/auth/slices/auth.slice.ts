@@ -1,10 +1,10 @@
 // base
 import { createSlice } from '@reduxjs/toolkit';
+import { IUserInfo } from '@/types';
 import { AUTH_SLICE_NAME } from '../action/auth.action';
 
 // thunks
 import { userLogin, userLogout } from '../thunks/auth.thunk';
-import { IUserInfo } from '@/types';
 
 interface AuthIntialState {
   userInfo: IUserInfo;

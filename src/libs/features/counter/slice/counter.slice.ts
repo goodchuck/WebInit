@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppThunk } from '../../../store';
 import { RootState } from '@/libs/rootReducer';
+import { AppThunk } from '../../../store';
 import { incrementAsync } from '../thunk/counter.thunk';
 import { actions, COUNTER_SLICE_NAME } from '../actions/counter.actions';
 

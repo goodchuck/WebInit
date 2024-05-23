@@ -14,7 +14,7 @@ const windDirection = [
 ];
 
 export const findWindDirectionByAngle = (angle) => {
-  let result = undefined;
+  let result;
   for (let i = 0; i < windDirection.length; i++) {
     const { value, limit } = windDirection[i];
     if (Number(angle) <= Number(limit)) {

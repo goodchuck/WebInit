@@ -4,7 +4,7 @@ import { sleep } from '@/utils/timer';
 import qs from 'qs';
 
 const authInstance = new AxiosInstanceCreator({
-  baseURL: process.env.REACT_APP_API_URL + `/v1/api`,
+  baseURL: `${process.env.REACT_APP_API_URL}/v1/api`,
 }).create();
 
 const dummyUserInfo: IUserInfo = {

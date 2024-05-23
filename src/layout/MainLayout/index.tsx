@@ -8,11 +8,7 @@ interface IMainLayout {
   children: React.ReactNode;
 }
 
-export const MainLayout = ({
-  title = '테스트',
-  tags,
-  children,
-}: IMainLayout) => {
+export function MainLayout({ title = '테스트', tags, children }: IMainLayout) {
   return (
     <StyledMainLayout>
       <h1>{title}</h1>
@@ -20,4 +16,4 @@ export const MainLayout = ({
       {children}
     </StyledMainLayout>
   );
-};
+}

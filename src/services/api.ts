@@ -8,15 +8,14 @@ import axios, {
 import { ErrorCode } from '../enums'; // 경로가 올바른지 확인하세요
 
 // services
-import { cookieStorage, COOKIE_KEYS } from '../services/cookie';
+import { cookieStorage, COOKIE_KEYS } from './cookie';
 
 // 에러 메시지를 추출하는 함수
 export const extractErrorMsg = (error: AxiosError): string => {
   if (!error.response) {
     return '서버에 접속할 수 없습니다';
-  } else {
-    return (error.response.data as any).message || '에러 발생';
   }
+  return (error.response.data as any).message || '에러 발생';
 };
 
 const source = axios.CancelToken.source();
@@ -40,9 +39,9 @@ class AxiosInstanceCreator {
       (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
         const token = cookieStorage.getCookie(COOKIE_KEYS.ACCESS_TOKEN);
 
-        if (!config.headers['Authorization']) {
+        if (!config.headers.Authorization) {
           if (token && token !== 'undefined' && token !== undefined) {
-            config.headers['Authorization'] = `Bearer ${token}`;
+            config.headers.Authorization = `Bearer ${token}`;
           }
         }
 
@@ -67,27 +66,25 @@ class AxiosInstanceCreator {
         if (axios.isCancel(error)) {
           clearUserToken();
           return Promise.reject(error);
-        } else {
-          if (error.response) {
-            if (error.response.status === ErrorCode.AUTHORIZATION_REQUIRED) {
-              clearUserToken();
-              return Promise.reject(error);
-            }
-
-            const result = {
-              ...error.response.data,
-              message: extractErrorMsg(error),
-            };
-
-            return Promise.reject(result);
-          } else {
-            const result = {
-              message: extractErrorMsg(error),
-            };
-
-            return Promise.reject(result);
-          }
         }
+        if (error.response) {
+          if (error.response.status === ErrorCode.AUTHORIZATION_REQUIRED) {
+            clearUserToken();
+            return Promise.reject(error);
+          }
+
+          const result = {
+            ...error.response.data,
+            message: extractErrorMsg(error),
+          };
+
+          return Promise.reject(result);
+        }
+        const result = {
+          message: extractErrorMsg(error),
+        };
+
+        return Promise.reject(result);
       },
     );
   }

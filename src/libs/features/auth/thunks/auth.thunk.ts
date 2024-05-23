@@ -3,14 +3,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 // api
+import { COOKIE_KEYS, cookieStorage } from '@/services/cookie';
+import { ILogin } from '@/types';
 import { authApi } from '../apis/auth.api';
 
 // action
 import { actions } from '../action/auth.action';
 
 // service
-import { COOKIE_KEYS, cookieStorage } from '@/services/cookie';
-import { ILogin } from '@/types';
 
 /**
  * 로그인

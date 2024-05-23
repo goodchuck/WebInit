@@ -32,6 +32,11 @@ const items: MenuItem[] = [
     getItem('로그인', '/redux/login'),
   ]),
 
+  getItem('ReactQuery', '/reactquery', <MailOutlined />, [
+    getItem('user', '/reactquery/user'),
+    getItem('로그인', '/redux/login'),
+  ]),
+
   // getItem('Image', '/image', <AppstoreOutlined />, [
   //     getItem('generator', '/image/generator'),
   //     getItem('edit', '/image/edit'),
