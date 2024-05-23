@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 프로젝트 이름
+웹 개발을 진행할때의 기본 틀 
 
-## Getting Started
+## 프로젝트 설명
+웹 프로젝트를 새로시작할때에 대한 대략적인 틀 저장소입니다.
+폴더구조는 기본 권장사항으로 구성이되어있으며 필요에따라 크게 바뀌는경우는 
+새로운 저장소 또는 브랜치로 관리하여 관리에 용이하고자 합니다.
 
-First, run the development server:
+## 목차
+1. [프로젝트 설명](#프로젝트-설명)
+2. [기능](#기능)
+3. [설치 방법](#설치-방법)
+4. [사용 방법](#사용-방법)
+5. [기술 스택](#기술-스택)
+6. [기여](#기여)
+7. [테스트](#테스트)
+8. [배포](#배포)
+9. [라이선스](#라이선스)
+10. [연락처](#연락처)
+11. [참고 자료](#참고자료)
 
+## 설치 방법
+프로젝트를 설치하고 설정하는 방법을 단계별로 설명합니다.
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 예시
+git clone https://github.com/yourusername/your-repository.git
+cd your-repository
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 기능
+### 폴더구조
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 사용 방법
+```bash
+npm run dev
+```
 
-## Learn More
+## 기술 스택
+- 프론트엔드 : Next.js, Typescript
+- 백엔드 : Next.js
+- 데이터베이스 : X
 
-To learn more about Next.js, take a look at the following resources:
+## 기여
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 테스트
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 배포
 
-## Deploy on Vercel
+## 라이선스
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 연락처
+문의 메일 : goodchuck852@gmail.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 참고자료
