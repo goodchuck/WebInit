@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { DesktopOutlined, MailOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, DesktopOutlined, MailOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { usePathname, useRouter } from 'next/navigation';
@@ -35,6 +35,10 @@ const items: MenuItem[] = [
   getItem('ReactQuery', '/reactquery', <MailOutlined />, [
     getItem('user', '/reactquery/user'),
     getItem('로그인', '/redux/login'),
+  ]),
+
+  getItem('애니메이션', '/animation', <AppstoreOutlined />, [
+    getItem('framer-motion', '/animation/framer-motion'),
   ]),
 
   // getItem('Image', '/image', <AppstoreOutlined />, [

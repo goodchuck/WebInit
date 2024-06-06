@@ -7,6 +7,13 @@ import { Flex } from 'antd';
 import { HeaderV1 } from '@/containers';
 import RQProvider from '@/app/RQProvider';
 import PageTransition from '@/components/PageTransition/PageTransition';
+import {
+  defaultVariants,
+  fadeVariants,
+  slideVariants,
+} from '@/libs/framer-motion/animations';
+
+import ScrollBar from '@/components/ScrollBar/ScrollBar';
 import StoreProvider from './StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -26,7 +33,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <RQProvider>
-            <PageTransition>
+            <ScrollBar />
+            <PageTransition variants={fadeVariants}>
               <Flex gap="middle" style={{ minHeight: '100vh' }}>
                 <HeaderV1 />
                 {children}
