@@ -14,6 +14,7 @@ import {
 } from '@/libs/framer-motion/animations';
 
 import ScrollBar from '@/components/ScrollBar/ScrollBar';
+import StyledComponentsRegistry from '@/libs/registry';
 import StoreProvider from './StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -31,17 +32,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StoreProvider>
-          <RQProvider>
-            <ScrollBar />
-            <PageTransition variants={fadeVariants}>
-              <Flex gap="middle" style={{ minHeight: '100vh' }}>
-                <HeaderV1 />
-                {children}
-              </Flex>
-            </PageTransition>
-          </RQProvider>
-        </StoreProvider>
+        <StyledComponentsRegistry>
+          <StoreProvider>
+            <RQProvider>
+              <ScrollBar />
+              <PageTransition variants={fadeVariants}>
+                <Flex gap="middle" style={{ minHeight: '100vh' }}>
+                  <HeaderV1 />
+                  {children}
+                </Flex>
+              </PageTransition>
+            </RQProvider>
+          </StoreProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
