@@ -1,6 +1,6 @@
 'use client';
 
-import { MainLayout } from '@/layout/MainLayout';
+import MainLayout from '@/layout/MainLayout';
 import { Flex } from 'antd';
 import Link from 'next/link';
 

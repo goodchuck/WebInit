@@ -15,10 +15,10 @@
     "prepare": "husky"
   },
   "lint-staged": {
-  "src/**/*.{js,jsx,ts,tsx}": [
-    "eslint --ext .tsx --ext .ts src/",
-    "prettier --write"
-  ]
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --ext .tsx,.ts",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
